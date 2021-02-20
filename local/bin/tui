@@ -1,0 +1,22 @@
+#!/bin/bash
+
+[[ $1 == -* ]] && shift
+
+if [[ $# == 0 ]]; then
+    alacritty ||
+    kitty ||
+    st ||
+    xterm &
+elif [[ $1 == /* ]]; then
+    alacritty -e "$@" ||
+    kitty -e "$@" ||
+    st -e "$@" ||
+    xterm -e "$@" &
+else
+    s=${1%% *}
+    set -- "printf \"\e]0;${s^}\a\"; $@"
+    alacritty -e $SHELL -ic "$*" ||
+    kitty -e $SHELL -ic "$*" ||
+    st -e $SHELL -ic "$*" ||
+    xterm -e $SHELL -ic "$*" &
+fi

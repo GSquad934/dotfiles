@@ -1,0 +1,11 @@
+#!/bin/bash
+# Description: reboot or shutdown the computer via DMenu
+
+OPTS=$(echo -e "Shutdown\nReboot\nLogout" | dmenu -i -p "Choose:")
+
+case $OPTS in
+	Shutdown) systemctl poweroff ;;
+	Reboot) systemctl reboot ;;
+	Logout) xdotool key "super+shift+q" ;;
+	*) ;;
+esac

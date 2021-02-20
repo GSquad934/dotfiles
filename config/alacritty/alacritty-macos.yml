@@ -1,0 +1,102 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+#env:
+#  TERM: alacritty
+
+# Window decorations
+#
+# Values for `decorations`:
+#     - full: Borders and title bar
+#     - none: Neither borders nor title bar
+#
+# Values for `decorations` (macOS only):
+#     - transparent: Title bar, transparent background and title bar buttons
+#     - buttonless: Title bar, transparent background, but no title bar buttons
+window:
+  decorations: none
+
+# Window dimensions (changes require restart)
+#
+# Specified in number of columns/lines, not pixels.
+# If both are `0`, this setting is ignored.
+  dimensions:
+    columns: 150
+    lines: 50
+
+# Font configuration
+font:
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  bold:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+
+# Font size
+  size: 12.0
+
+# Offset is the extra space around each character. `offset.y` can be thought of
+# as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+# Colors
+colors:
+  primary:
+    background: '#1c1c1c'
+    foreground: '#c5c8c6'
+  cursor:
+    text: '#1d1f21'
+    cursor: '#c5c8c6'
+  selection:
+    text: '#c5c8c6'
+    background: '#1d1f21'
+  normal:
+    black:   '#333333'
+    red:     '#cc6666'
+    green:   '#81bd68'
+    yellow:  '#f0c674'
+    blue:    '#6699ff'
+    magenta: '#b294bb'
+    cyan:    '#789bba'
+    white:   '#c5c8c6'
+  bright:
+    black:   '#595959'
+    red:     '#d98c8c'
+    green:   '#a7d095'
+    yellow:  '#f5daa3'
+    blue:    '#9ab4cb'
+    magenta: '#c7b1cd'
+    cyan:    '#add2cd'
+    white:   '#e5e6e5'
+  dim:
+    black:   '#969896'
+    red:     '#cc6666'
+    green:   '#81bd68'
+    yellow:  '#f0c674'
+    blue:    '#81a2be'
+    magenta: '#b294bb'
+    cyan:    '#8abeb7'
+    white:   '#c5c8c6'
+
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+background_opacity: 1.0
+
+# Prevent the cursom from blinking and set it to a vertical bar
+cursor:
+  style:
+    shape: Beam
+    blinking: Never
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+# Key bindings to change font size
+key_bindings:
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }

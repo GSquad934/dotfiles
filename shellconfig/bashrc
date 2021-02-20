@@ -1,0 +1,32 @@
+# Skip this file for non-interactive shells
+[[ $- != *i* ]] && return
+
+# Set the dotfiles' location
+export DOTFILES="$HOME/.dotfiles"
+
+# Set scripts, Git repositories & sources location
+export SCRIPTS="$HOME/.local/bin"
+export SOURCES="$HOME/.sources"
+export REPOS="$HOME/.sources/repos"
+
+# Define prompt
+if [[ ${EUID} == 0 ]] ; then
+		export PS1='\[\033[91m\]> \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
+	else
+		export PS1='\[\033[95m\]> \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
+fi
+
+# Launch BASH and ignore .bashrc
+alias bbash="env -i bash --norc --noprofile"
+
+# Source common options
+source "$DOTFILES"/shellconfig/common
+
+# Source aliases & functions
+source "$DOTFILES"/shellconfig/functions
+for f in "$DOTFILES"/shellconfig/*aliases; do source $f; done
+
+# Load Starship prompt if installed
+if type starship > /dev/null 2>&1; then
+	eval "$(starship init bash)"
+fi

@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+
+# Define what WM/DE to execute
+export SESSION="dwm"
+
+# Executed by startx (run your window manager from here)
+get_session(){
+	case "$SESSION" in
+		dwm) dwm ;;
+		awesome) awesome ;;
+		bspwm) bspwm-session ;;
+		budgie) budgie-desktop ;;
+		cinnamon) cinnamon-session ;;
+		deepin) startdde ;;
+		enlightenment) enlightenment_start ;;
+		fluxbox) startfluxbox ;;
+		gnome) gnome-session ;;
+		i3|i3wm) i3 --shmlog-size 0 ;;
+		jwm) jwm ;;
+		kde) startplasma-x11 ;;
+		lxde) startlxde ;;
+		lxqt) lxqt-session ;;
+		mate) mate-session ;;
+		xfce) xfce4-session ;;
+		openbox) openbox-session ;;
+	esac
+}
+
+# Configure wallpaper
+if type feh > /dev/null 2>&1 && [[ -d "$HOME/.local/share/wallpapers" ]]; then feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* ; fi
+
+# Configure keyboard repeat rate
+if [[ "$OSTYPE" == "linux-gnu" ]] && type xset > /dev/null 2>&1; then
+	xset r rate 200 70 > /dev/null 2>&1
+fi
+
+# Launch Simple X Hotkey Daemon
+if type sxhkd > /dev/null 2>&1; then
+	sxhkd &
+fi
+
+# Launch Flameshot if installed
+if type flameshot > /dev/null 2>&1; then
+	flameshot &
+fi
+
+# Launch DWMBlocks if running DWM
+if [[ "$SESSION" == "dwm" ]]; then
+	dwmbar &
+fi
+
+# # Launch a session manager
+# if type lxsession > /dev/null 2>&1; then
+# 	lxsession &
+# fi
+
+# # Launch compositer for fancy graphical effects
+# if type picom > /dev/null 2>&1; then
+# 	picom &
+# fi
+
+# Launch the chosen GUI environment (must be last)
+get_session "$1"

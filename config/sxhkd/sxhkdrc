@@ -1,0 +1,47 @@
+# Launch terminal emulator
+super + Return
+	"$SHELL" -c "$TERMINAL"
+
+# Launch launcher menu
+super + shift + Return
+	"$SHELL" -c "$LMENU"
+
+# Launch Web browser
+super + alt + {w,W}
+	"$SHELL" -c {"$BROWSER","tui $BROWSERCLI https://duckduckgo.com"}
+
+# Launch music player
+super + alt + c
+	"$SHELL" -c 'if [[ "$MUSICPLAYER" == *"mocp"* ]]; then tui "$MUSICPLAYER" ; else "$MUSICPLAYER" ; fi'
+
+# Launch text editor
+super + alt + e
+	"$SHELL" -c 'tui "$EDITOR"'
+
+# Launch file manager
+super + alt + f
+	"$SHELL" -c 'if [[ "$FILEMANAGER" == "vifm" ]]; then tui "$FILEMANAGER" ; else "$FILEMANAGER" ; fi'
+
+# Launch system monitor
+super + alt + h
+	"$SHELL" -c 'tui $SYSMONITOR'
+
+# Launch IRC client
+super + alt + i
+	"$SHELL" -c 'if [[ "$IRCCLIENT" == "weechat" ]]; then tui "$IRCCLIENT" ; else "$IRCCLIENT" ; fi'
+
+# Launch RSS reader
+super + alt + n
+	"$SHELL" -c 'tui "$RSSREADER"'
+
+# Launch Web wrapper/aggregator
+super + alt + M
+	"$SHELL" -c '"$WEBWRAPPER"'
+
+# Launch screenshot utility
+super + alt + 5
+	"$SHELL" -c '"$SCROTBIN"'
+
+# Launch sound mixer
+super + alt + m
+	"$SHELL" -c 'if [[ "$AUDIOMIXER" == "alsamixer" ]]; then tui "$AUDIOMIXER" ; else "$AUDIOMIXER" ; fi'

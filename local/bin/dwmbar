@@ -12,8 +12,14 @@ while true; do
 	NET="$(dwmnet)"
 	TEMP="$(dwmtemp)"
 	CLOCK="$(dwmclock)"
+	BATTERY="$(dwmbattery)"
 	UPDATES="$(< /tmp/dwmupdates.txt)"
 	DISK="$(< /tmp/dwmdisk.txt)"
-	xsetroot -name " $UPDATES| $CPU| $RAM| $NET| $TEMP| $DISK| $VOL| $CLOCK"
+	DISK="$(< /tmp/dwmdisk.txt)"
+	if [ -d /sys/class/power_supply/BAT?* ]; then
+		xsetroot -name " $UPDATES| $CPU| $RAM| $NET| $DISK| $TEMP| $BATTERY| $VOL| $CLOCK"
+	else
+		xsetroot -name " $UPDATES| $CPU| $RAM| $NET| $DISK| $TEMP| $VOL| $CLOCK"
+	fi
 	sleep 1s
 done &

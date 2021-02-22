@@ -1,0 +1,8 @@
+configuration {
+	modi: "drun,run,window,ssh,keys,combi";
+	font: "JetBrains Mono 10";
+	show-icons: true;
+	terminal: "$TERMINAL";
+	combi-modi: "window,run,drun";
+}
+@import "/usr/share/rofi/themes/Arc-Dark.rasi"

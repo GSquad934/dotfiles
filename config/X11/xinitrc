@@ -40,6 +40,16 @@ if type sxhkd > /dev/null 2>&1; then
 	sxhkd &
 fi
 
+# Launch Dunst if installed (notification)
+if type dunst > /dev/null 2>&1; then
+	dunst &
+fi
+
+# Launch Unclutter (hide mouse cursor)
+if type unclutter > /dev/null 2>&1; then
+	unclutter &
+fi
+
 # Launch Flameshot if installed
 if type flameshot > /dev/null 2>&1; then
 	flameshot &

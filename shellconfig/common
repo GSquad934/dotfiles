@@ -151,7 +151,7 @@ fi
 # Configure the default launcher menu
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	if type rofi > /dev/null 2>&1; then
-		export LMENU="rofi -show run"
+		export LMENU="rofi -show combi"
 	elif type dmenu > /dev/null 2>&1; then
 		export LMENU="dmenu_run"
 	fi

@@ -1,14 +1,18 @@
 #!/bin/bash
 
-R1=`cat /sys/class/net/[ew]*/statistics/rx_bytes`
-T1=`cat /sys/class/net/[ew]*/statistics/tx_bytes`
-sleep 1
-R2=`cat /sys/class/net/[ew]*/statistics/rx_bytes`
-T2=`cat /sys/class/net/[ew]*/statistics/tx_bytes`
-TBPS=`expr $T2 - $T1`
-RBPS=`expr $R2 - $R1`
-TKBPS=`expr $TBPS / 1024`
-RKBPS=`expr $RBPS / 1024`
-icon="⬇️"
-icon1="⬆️"
-printf "%s %s %s %s \\n" "$icon" "$RKBPS KB" "$icon1" "$TKBPS KB"
+update() {
+    sum=0
+    for arg; do
+        read -r i < "$arg"
+        sum=$(( sum + i ))
+    done
+    cache=${XDG_CACHE_HOME:-$HOME/.cache}/${1##*/}
+    [ -f "$cache" ] && read -r old < "$cache" || old=0
+    printf %d\\n "$sum" > "$cache"
+    printf %d\\n $(( sum - old ))
+}
+
+rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+printf "⬇️%4sB ⬆️%4sB\\n " $(numfmt --to=iec $rx) $(numfmt --to=iec $tx)

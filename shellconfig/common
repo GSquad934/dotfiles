@@ -7,7 +7,7 @@
 
 # Define custom PATH
 if [[ -d "$SCRIPTS" ]]; then
-	export PATH="$SCRIPTS":"$PATH"
+	export PATH="$SCRIPTS":"$SCRIPTS/statusbar":"$PATH"
 fi
 if [[ -d "$SOURCES/bin" ]]; then
 	export PATH="$SOURCES/bin":"$PATH"

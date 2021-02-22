@@ -269,7 +269,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]] && type xset > /dev/null 2>&1; then
 fi
 
 # If a WM is installed on Arch Linux, source the X11 profile
-if [[ ! -h /etc/arch-release ]] && [[ -f "$HOME"/.xinitrc ]] > /dev/null 2>&1; then
+if [[ ! -h /etc/arch-release ]] && [[ -f "$HOME"/.xinitrc ]] && [[ -f "$XDG_CONFIG_HOME"/X11/xprofile ]]; then
 	source "$XDG_CONFIG_HOME"/X11/xprofile
 fi
 

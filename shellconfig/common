@@ -250,7 +250,9 @@ fi
 
 # Configure the default sound mixer
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	if type alsamixer > /dev/null 2>&1; then
+	if type pulsemixer > /dev/null 2>&1; then
+		export AUDIOMIXER="pulsemixer"
+	elif type alsamixer > /dev/null 2>&1; then
 		export AUDIOMIXER="alsamixer"
 	fi
 fi

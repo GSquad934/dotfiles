@@ -44,4 +44,4 @@ super + alt + 5
 
 # Launch sound mixer
 super + alt + m
-	"$SHELL" -c 'if [[ "$AUDIOMIXER" =~ "alsamixer|pulsemixer" ]]; then tui "$AUDIOMIXER" ; else "$AUDIOMIXER" ; fi'
+	"$SHELL" -c 'if [[ "$AUDIOMIXER" =~ alsamixer|pulsemixer ]]; then tui "$AUDIOMIXER" ; else "$AUDIOMIXER" ; fi'

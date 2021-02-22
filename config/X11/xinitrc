@@ -55,7 +55,7 @@ if type flameshot > /dev/null 2>&1; then
 	flameshot &
 fi
 
-# Launch DWMBlocks if running DWM
+# Launch 'dwmbar' script if running DWM
 if [[ "$SESSION" == "dwm" ]]; then
 	dwmbar &
 fi

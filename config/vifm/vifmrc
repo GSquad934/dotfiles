@@ -446,13 +446,13 @@ set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.pp
 if executable('fzf')
 	if executable('fd')
 	command! FZFfind : set noquickview
-    	\| let $FZF_PICK = term('fd -H | fzf --height 10 2>/dev/tty')
+    	\| let $FZF_PICK = term('fd -H | fzf 2>/dev/tty')
     	\| if $FZF_PICK != ''
     	\|     execute 'goto' fnameescape($FZF_PICK)
     	\| endif
 	else
 	command! FZFfind : set noquickview
-    	\| let $FZF_PICK = term('find | fzf --height 10 2>/dev/tty')
+    	\| let $FZF_PICK = term('find | fzf 2>/dev/tty')
     	\| if $FZF_PICK != ''
     	\|     execute 'goto' fnameescape($FZF_PICK)
     	\| endif
@@ -460,13 +460,13 @@ if executable('fzf')
 
 	if executable('rg')
 	command! FZFgrep : set noquickview
-    	\| let $FZF_PICK = term('rg "$1" | fzf --height 10 2>/dev/tty | cut -d: -f1')
+    	\| let $FZF_PICK = term('rg "$1" | fzf 2>/dev/tty | cut -d: -f1')
     	\| if $FZF_PICK != ''
     	\|     execute 'goto' fnameescape($FZF_PICK)
     	\| endif
 	else
 	command! FZFgrep : set noquickview
-    	\| let $FZF_PICK = term('grep -riI "$1" | fzf --height 10 2>/dev/tty | cut -d: -f1')
+    	\| let $FZF_PICK = term('grep -riI "$1" | fzf 2>/dev/tty | cut -d: -f1')
     	\| if $FZF_PICK != ''
     	\|     execute 'goto' fnameescape($FZF_PICK)
     	\| endif

@@ -159,12 +159,12 @@ fi
 
 # Configure the default graphical Web browser
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	if type brave > /dev/null 2>&1; then
+	if type firefox > /dev/null 2>&1; then
+		export BROWSER="firefox"
+	elif type brave > /dev/null 2>&1; then
 		export BROWSER="brave"
 	elif type chromium > /dev/null 2>&1; then
 		export BROWSER="chromium"
-	elif type firefox > /dev/null 2>&1; then
-		export BROWSER="firefox"
 	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	if [[ -d /Applications/Brave\ Browser.app ]]; then

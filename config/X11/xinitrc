@@ -60,6 +60,11 @@ if [[ "$SESSION" == "dwm" ]]; then
 	dwmbar &
 fi
 
+# Launch a session manager
+if type lxpolkit > /dev/null 2>&1; then
+	lxpolkit &
+fi
+
 # # Launch a session manager
 # if type lxsession > /dev/null 2>&1; then
 # 	lxsession &

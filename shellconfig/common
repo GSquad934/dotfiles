@@ -143,6 +143,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 		export TERMINAL="alacritty"
 	elif type kitty > /dev/null 2>&1; then
 		export TERMINAL="kitty"
+	elif type termite > /dev/null 2>&1; then
+		export TERMINAL="termite"
 	elif type st > /dev/null 2>&1; then
 		export TERMINAL="st"
 	fi

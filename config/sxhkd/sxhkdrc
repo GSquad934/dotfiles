@@ -45,3 +45,7 @@ super + alt + 5
 # Launch sound mixer
 super + alt + m
 	"$SHELL" -c 'if [[ "$AUDIOMIXER" == alsamixer ]]; then tui "$AUDIOMIXER" ; elif [[ "$AUDIOMIXER" == pulsemixer ]]; then tui "$AUDIOMIXER" ; else "$AUDIOMIXER" ; fi'
+
+# Emoji selector
+super + alt + E
+	"$SHELL" -c 'dmenu-unicode'

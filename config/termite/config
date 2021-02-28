@@ -1,0 +1,64 @@
+[options]
+allow_bold = true
+audible_bell = false
+bold_is_bright = false
+browser = $BROWSER
+clickable_url = true
+cursor_blink = off
+cursor_shape = beam
+dynamic_title = false
+filter_unmatched_urls = true
+font = JoyPixels 8
+font = JetBrains Mono 10
+fullscreen = true
+geometry = 900x650
+highlight = #2f2f2f
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = true
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+
+[colors]
+
+# special
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #1c1c1c
+
+# black
+color0  = #333333
+color8  = #595959
+
+# red
+color1  = #cc6666
+color9  = #d98c8c
+
+# green
+color2  = #81bd68
+color10 = #a7d095
+
+# yellow
+color3  = #f0c674
+color11 = #f5daa3
+
+# blue
+color4  = #6699ff
+color12 = #9ab4cb
+
+# magenta
+color5  = #b294bb
+color13 = #c7b1cd
+
+# cyan
+color6  = #789bba
+color14 = #add2cd
+
+# white
+color7  = #c5c8c6
+color15 = #e5e6e5

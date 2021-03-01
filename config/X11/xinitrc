@@ -27,53 +27,65 @@ get_session(){
 	esac
 }
 
-# Configure wallpaper
-if type feh > /dev/null 2>&1 && [[ -d "$HOME/.local/share/wallpapers" ]]; then feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* ; fi
-
-# Configure keyboard repeat rate
-if [[ "$OSTYPE" == "linux-gnu" ]] && type xset > /dev/null 2>&1; then
-	xset r rate 200 70 > /dev/null 2>&1
-fi
-
-# Launch Simple X Hotkey Daemon
-if type sxhkd > /dev/null 2>&1; then
-	sxhkd &
-fi
-
-# Launch Dunst if installed (notification)
-if type dunst > /dev/null 2>&1; then
-	dunst &
-fi
-
-# Launch Unclutter (hide mouse cursor)
-if type unclutter > /dev/null 2>&1; then
-	unclutter &
-fi
-
-# Launch Flameshot if installed
-if type flameshot > /dev/null 2>&1; then
-	flameshot &
-fi
-
-# Launch 'dwmbar' script if running DWM
 if [[ "$SESSION" == "dwm" ]]; then
-	dwmbar &
+	# Configure wallpaper
+	if type feh > /dev/null 2>&1 && [[ -d "$HOME/.local/share/wallpapers" ]]; then feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* ; fi
+
+	# Configure keyboard repeat rate
+	if [[ "$OSTYPE" == "linux-gnu" ]] && type xset > /dev/null 2>&1; then
+		xset r rate 200 70 > /dev/null 2>&1
+	fi
+
+	# Launch Simple X Hotkey Daemon
+	if type sxhkd > /dev/null 2>&1; then
+		sxhkd &
+	fi
+
+	# Launch Dunst if installed (notification)
+	if type dunst > /dev/null 2>&1; then
+		dunst &
+	fi
+
+	# Launch Unclutter (hide mouse cursor)
+	if type unclutter > /dev/null 2>&1; then
+		unclutter &
+	fi
+
+	# Launch Flameshot if installed
+	if type flameshot > /dev/null 2>&1; then
+		flameshot &
+	fi
+
+	# Launch 'dwmbar' script if running DWM
+	if [[ "$SESSION" == "dwm" ]]; then
+		dwmbar &
+	fi
+
+	# # Display volume icon in systray
+	# if type volumeicon > /dev/null 2>&1; then
+	# 	volumeicon &
+	# fi
+
+	# Turn on Numlock
+	if type lxpolkit > /dev/null 2>&1; then
+		numlockx on &
+	fi
+
+	# Launch a session manager
+	if type lxpolkit > /dev/null 2>&1; then
+		lxpolkit &
+	fi
+
+	# # Launch a session manager
+	# if type lxsession > /dev/null 2>&1; then
+	# 	lxsession &
+	# fi
+
+	# # Launch compositer for fancy graphical effects
+	# if type picom > /dev/null 2>&1; then
+	# 	picom &
+	# fi
 fi
-
-# Launch a session manager
-if type lxpolkit > /dev/null 2>&1; then
-	lxpolkit &
-fi
-
-# # Launch a session manager
-# if type lxsession > /dev/null 2>&1; then
-# 	lxsession &
-# fi
-
-# # Launch compositer for fancy graphical effects
-# if type picom > /dev/null 2>&1; then
-# 	picom &
-# fi
 
 # Launch the chosen GUI environment (must be last)
 get_session "$1"

@@ -67,7 +67,7 @@ if [[ "$SESSION" == "dwm" ]]; then
 	# fi
 
 	# Turn on Numlock
-	if type lxpolkit > /dev/null 2>&1; then
+	if type numlockx > /dev/null 2>&1; then
 		numlockx on &
 	fi
 

@@ -1,6 +1,12 @@
 # Skip this file for non-interactive shells
 [[ $- != *i* ]] && return
 
+# Set the prompt
+setopt PROMPT_SUBST
+NEWLINE=$'\n'
+GITBRANCH='$(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
+export PS1="%F{magenta}%n@%m%f %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+
 # Set the dotfiles and custom scripts location
 export DOTFILES="$HOME/.dotfiles"
 

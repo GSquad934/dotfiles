@@ -60,10 +60,9 @@ disabled = false
 
 # Prompt's beginning character customization
 [character]
-success_symbol = "[➜](bold 27)"
-# error_symbol = "[✖](bold 196)"
-error_symbol = "[➜](bold 196)"
-vicmd_symbol = "[➜](bold 39)"
+success_symbol = "[➔](bold 33)"
+error_symbol = "[➔](bold 196)"
+vicmd_symbol = "[➔](bold 39)"
 
 # Command duration customization
 [cmd_duration]
@@ -77,7 +76,7 @@ truncation_symbol = "…/"
 truncate_to_repo = true
 read_only = " "
 read_only_style = "blue"
-style = "172"
+style = "bold 172"
 
 # AWS region and profile
 [aws]

@@ -1,1 +1,25 @@
-/Users/gaetan/.dotfiles/local/bin/statusbar/dwmbar
+#!/bin/bash
+while true; do
+	dwmupdates > /tmp/dwmupdates.txt
+	dwmdisk > /tmp/dwmdisk.txt
+	sleep 3600s
+done &
+
+while true; do
+	VOL="$(dwmvol)"
+	CPU="$(dwmcpu)"
+	RAM="$(dwmmemory)"
+	NET="$(dwmnet)"
+	TEMP="$(dwmtemp)"
+	CLOCK="$(dwmclock)"
+	BATTERY="$(dwmbattery)"
+	UPDATES="$(< /tmp/dwmupdates.txt)"
+	DISK="$(< /tmp/dwmdisk.txt)"
+	DISK="$(< /tmp/dwmdisk.txt)"
+	if [ -d /sys/class/power_supply/BAT?* ]; then
+		xsetroot -name " $UPDATES| $CPU| $RAM| $NET| $DISK| $TEMP| $BATTERY| $VOL| $CLOCK"
+	else
+		xsetroot -name " $UPDATES| $CPU| $RAM| $NET| $DISK| $TEMP| $VOL| $CLOCK"
+	fi
+	sleep 1s
+done &

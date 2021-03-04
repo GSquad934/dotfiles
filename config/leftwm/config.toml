@@ -10,7 +10,7 @@ key = "Return"
 
 [[keybind]]
 command = "Execute"
-value = "termite"
+value = "st"
 modifier = ["modkey"]
 key = "Return"
 

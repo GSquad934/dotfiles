@@ -19,12 +19,14 @@ The following packages are necessary in order to run this build of LeftWM proper
 The following software are not mandatory but recommended:
 * feh
 * dmenu
-* termite (the hard-coded terminal in the *config.toml* file. Can be modified to your needs)
+* st (the hard-coded terminal in the *config.toml* file. Can be modified to your needs)
 * xlock
 
-If you want a nice DMenu to be integrated, you can install [my custom build](https://github.com/GSquad934/dmenu). The default terminal emulator can be modified to any out there.
+If you want a nice DMenu to be integrated, you can install [my custom build](https://github.com/GSquad934/dmenu). The default terminal emulator can be modified to any out there. If you want a nice build of ST to be integrated, you can install [my custom build](https://github.com/GSquad934/st).
 
 # Installation
+The installation can be fully automated using [my bootstrap script](https://github.com/GSquad934/bootstrap).
+
 For Arch based Linux distributions, LeftWM is available in the AUR. Use any AUR helper you want to install this window manager. Here is the necessary command if using *YAY*:
 
 ```

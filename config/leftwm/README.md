@@ -9,15 +9,18 @@ This repository hosts the configuration files for [LeftWM](https://leftwm.org/).
 * Custom scripts ran by the status bar to display various information
 
 # Dependencies
-The following packages are necessary in order to run this build of DWM properly:
+The following packages are necessary in order to run this build of LeftWM properly:
 
 * ttf-jetbrains-mono
 * ttf-joypixels
+* polybar
 * libxft-bgra
-* feh (recommended)
-* dmenu (recommended)
-* alacritty (the hard-coded terminal in the *config.toml* file)
-* xlock (optional, only if you want a lock screen)
+
+The following software are not mandatory but recommended:
+* feh
+* dmenu
+* termite (the hard-coded terminal in the *config.toml* file. Can be modified to your needs)
+* xlock
 
 If you want a nice DMenu to be integrated, you can install [my custom build](https://github.com/GSquad934/dmenu). The default terminal emulator can be modified to any out there.
 
@@ -27,6 +30,7 @@ For Arch based Linux distributions, LeftWM is available in the AUR. Use any AUR 
 ```
 yay -S leftwm
 ```
+Then, you also need the files in this repository to actually configure LeftWM and have the theme showcased in the above screenshot.
 
 For other methods of installation, please refer to the documentation on the [LeftWM Github page](https://github.com/leftwm/leftwm).
 
@@ -74,7 +78,7 @@ I configured the key bindings that I like. They are all configured in the *confi
 | `MODKEY + w` | Swap tags |
 | `MODKEY + ALT + l` | Lock the screen |
 
-<u>**Note**</u>: the key bindings in this configuration are a bit limited because I actually use SXHKD to run all my applications. My configuration for *SXHKD* can be found in [my dotfiles](https://github.com/GSquad934/dotfiles/blob/master/config/sxhkd/sxhkdrc). My configuration file for *SXHKD* is totally based on my personal dotfiles, so you will need to modify either the key bindings of LeftWM or have a custom *sxhkdrc* ready.
+<u>**Note**</u>: the key bindings in this configuration are a bit limited because I actually use *SXHKD* to run all my applications. My configuration for *SXHKD* can be found in [my dotfiles](https://github.com/GSquad934/dotfiles/blob/master/config/sxhkd/sxhkdrc). My configuration file for *SXHKD* is totally based on my personal dotfiles, so you will need to modify either the key bindings of LeftWM or have a custom *sxhkdrc* ready.
 
 # Status Bar
 In the custom theme offered by this repository, [Polybar](https://github.com/polybar/polybar) has been configured to act as the status bar
@@ -86,7 +90,7 @@ In the custom theme offered by this repository, [Polybar](https://github.com/pol
 * 🧠 35% : indicates the RAM usage
 * ⬇  120B ⬆  60B : indicates the download/upload network traffic usage. It will automatically change B/KB/MB depending on the usage
 * 💾 8.2G (38%) : indicates the disk space usage where "/" is mounted. Other disks can be added by modifying the script
-* 🌡 25.2 : indicates the CPU temperatur
+* 🌡 25.2 : indicates the CPU temperatur (will indicate 0 if no sensors are found)
 * 🔊 60% : indicates the volume level. The icon will change depending on the volume level
 * 🕒 Wed, February 24 21:39 : indicates the current day, date and time in 24H format
 * The system tray on the right will display whatever icon is required in the systray

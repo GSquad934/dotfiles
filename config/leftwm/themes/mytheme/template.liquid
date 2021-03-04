@@ -9,9 +9,9 @@
 %{A}
 {% else tag.visible  %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{F#FFFFFF} {{tag.name}} %{F-}
+%{F#666666} {{tag.name}} %{F-}
 %{A}
 {% endif %}
 {% endfor %}
+  {{ window_title }}
 %{c}
-{{ window_title }}

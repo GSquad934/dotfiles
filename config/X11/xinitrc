@@ -6,8 +6,8 @@ export SESSION="dwm"
 # Executed by startx (run your window manager from here)
 get_session(){
 	case "$SESSION" in
-		dwm) dwm ;;
-		leftwm) leftwm ;;
+		dwm) exec dbus-launch dwm ;;
+		leftwm) exec dbus-launch leftwm ;;
 	esac
 }
 

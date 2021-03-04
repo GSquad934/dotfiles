@@ -4,5 +4,7 @@ configuration {
 	show-icons: true;
 	terminal: "$TERMINAL";
 	combi-modi: "window,run,drun";
+	sort: true;
+	levenshtein-sort: true;
 }
 @import "/usr/share/rofi/themes/Arc-Dark.rasi"

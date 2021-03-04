@@ -18,10 +18,12 @@ fi
 
 if [[ "$SESSION" == "dwm" ]]; then
 	# Configure wallpaper
-	if type feh > /dev/null 2>&1 && [[ -d "$HOME/.local/share/wallpapers" ]]; then
-		feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* &
-	else
-		feh --bg-fill --no-fehbg /opt/dwm/backgroung.jpg &
+	if type feh > /dev/null 2>&1; then
+		if [[ -d "$HOME/.local/share/wallpapers" ]]; then
+			feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* &
+		else
+			feh --bg-fill --no-fehbg /opt/dwm/background.jpg &
+		fi
 	fi
 
 	# Launch Simple X Hotkey Daemon

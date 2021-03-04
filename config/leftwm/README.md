@@ -1,5 +1,5 @@
 # My LeftWM Configuration
-![](https://hostr.co/file/je1kH3BJ35KC/leftwm.png)
+![](https://hostr.co/file/5DL7v7qienXh/leftwm.png)
 
 This repository hosts the configuration files for [LeftWM](https://leftwm.org/). The files here consist of a *config.toml* file that contains all the key bindings of the window manager. The rest is part of a custom theme. It features:
 

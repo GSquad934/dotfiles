@@ -13,55 +13,55 @@ echo "LoadTheme $SCRIPTPATH/theme.toml" > "$XDG_RUNTIME_DIR"/leftwm/commands.pip
 
 # Start the compositer
 if [ -x "$(command -v picom)" ]; then
-  picom -CG &> /dev/null & 
+  picom -CG &> /dev/null &
 fi
 
 # Configure wallpaper
 if [ -x "$(command -v feh)" ]; then
   if [ -d "$HOME/.local/share/wallpapers" ]; then
-    feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/*
+    feh --bg-fill --no-fehbg --randomize "$HOME"/.local/share/wallpapers/* &
   else
-    feh --bg-fill --no-fehbg "$SCRIPTPATH"/background.jpg
+    feh --bg-fill --no-fehbg "$SCRIPTPATH"/background.jpg &
   fi
 fi
 
 # Launch policy kit
-if [ -x "$command -v lxpolkit)" ]; then
+if [ -x "$(command -v lxpolkit)" ]; then
   lxpolkit &
 fi
 
 # Launch Simple X Hotkey Daemon
-if [ -x "$command -v sxhkd)" ]; then
+if [ -x "$(command -v sxhkd)" ]; then
   sxhkd &
 fi
 
 # Launch Dunst (notification)
-if [ -x "$command -v dunst)" ]; then
+if [ -x "$(command -v dunst)" ]; then
   dunst &
 fi
 
 # Launch Unclutter (hide mouse cursor)
-if [ -x "$command -v unclutter)" ]; then
+if [ -x "$(command -v unclutter)" ]; then
   unclutter &
 fi
 
 # Launch Flameshot
-if [ -x "$command -v flameshot)" ]; then
+if [ -x "$(command -v flameshot)" ]; then
   flameshot &
 fi
 
 # Display volume icon in systray
-if [ -x "$command -v volumeicon)" ]; then
+if [ -x "$(command -v volumeicon)" ]; then
   volumeicon &
 fi
 
 # Turn on Numlock
-if [ -x "$command -v numlockx)" ]; then
+if [ -x "$(command -v numlockx)" ]; then
   numlockx &
 fi
 
 # Launch a session manager
-if [ -x "$command -v lxsession)" ]; then
+if [ -x "$(command -v lxsession)" ]; then
   lxsession &
 fi
 
@@ -69,7 +69,7 @@ fi
 index=0
 monitor="$(polybar -m | grep +0+0 | sed s/:.*// | tac)"
 leftwm-state -q -n -t "$SCRIPTPATH"/sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
-do 
+do
   barname="mainbar$index"
   monitor=$monitor offsetx=$x width=$width polybar -c "$SCRIPTPATH"/polybar.config "$barname" &> /dev/null &
   let index=index+1

@@ -14,19 +14,19 @@ The following packages are necessary in order to run this build of LeftWM proper
 * ttf-jetbrains-mono
 * ttf-joypixels
 * polybar
-* libxft-bgra
+* libxft-bgra (regular *libxft* won't work with my status bar)
 
 The following software are not mandatory but recommended:
-* feh
-* dmenu
-* st (the hard-coded terminal in the *config.toml* file. Can be modified to your needs)
-* xlock
+* feh (hard-coded in the theme to set a wallpaper)
+* dmenu (hard-coded run launcher)
+* st (the hard-coded terminal emulator)
+* xlock (optional, only if you want a lock screen)
 
-If you want a nice DMenu to be integrated, you can install [my custom build](https://github.com/GSquad934/dmenu). The default terminal emulator can be modified to any out there. If you want a nice build of ST to be integrated, you can install [my custom build](https://github.com/GSquad934/st).
+*feh*, *st* and *dmenu* are very recommended because those programs are in my LeftWM configuration. This can be customized by modifying either the *config.toml* file or the *themes/mytheme/up* file.
+
+If you want a nice DMenu to be integrated, you can install [my custom build](https://github.com/GSquad934/dmenu). You can check out [my build of ST](https://github.com/GSquad934/st) for a nice terminal emulator.
 
 # Installation
-The installation can be fully automated using [my bootstrap script](https://github.com/GSquad934/bootstrap).
-
 For Arch based Linux distributions, LeftWM is available in the AUR. Use any AUR helper you want to install this window manager. Here is the necessary command if using *YAY*:
 
 ```
@@ -35,6 +35,8 @@ yay -S leftwm
 Then, you also need the files in this repository to actually configure LeftWM and have the theme showcased in the above screenshot.
 
 For other methods of installation, please refer to the documentation on the [LeftWM Github page](https://github.com/leftwm/leftwm).
+
+<u>**Note**</u>: this LeftWM installation can be fully automated by using my [bootstrap script](https://github.com/GSquad934/bootstrap).
 
 # Running LeftWM
 If you don't use a login manager, you can start the graphical environment with the *startx* command (package "*xorg-xinit*" required) and a properly configured *.xinitrc* file. If you want some inspiration for your *.xinitrc*, you can check out [mine](https://github.com/GSquad934/dotfiles/blob/master/config/X11/xinitrc).

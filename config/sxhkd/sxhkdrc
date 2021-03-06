@@ -20,7 +20,7 @@ super + alt + e
 
 # Launch file manager
 super + alt + f
-	"$SHELL" -c 'if [[ "$FILEMANAGER" == "vifm" ]]; then tui "$FILEMANAGER" ; else "$FILEMANAGER" ; fi'
+	"$SHELL" -c 'if [[ "$FILEMANAGER" == "ranger" ]]; then tui "$FILEMANAGER" ; else "$FILEMANAGER" ; fi'
 
 # Launch system monitor
 super + alt + h

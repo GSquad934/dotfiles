@@ -23,19 +23,6 @@ colortest() {
 	echo -e "\033[1;30mGRAY\t\033[0;37mLIGHT_GRAY"
 }
 
-# Function to launch 'vifm' and change the shell's current directory when exiting the program
-if type vifm > /dev/null 2>&1; then
-	vifm()
-	{
-	    local dst="$(command vifm --choose-dir - "$@")"
-	    if [ -z "$dst" ]; then
-	        echo 'Directory picking cancelled/failed'
-	        return 1
-	    fi
-	    cd "$dst"
-	}
-fi
-
 # Function to perform basic maths
 if type bc > /dev/null 2>&1; then
 	calc() {

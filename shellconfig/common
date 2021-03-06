@@ -200,8 +200,8 @@ fi
 
 # Configure the default file manager
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	if type vifm > /dev/null 2>&1; then
-		export FILEMANAGER="vifm"
+	if type ranger > /dev/null 2>&1; then
+		export FILEMANAGER="ranger"
 	elif type pcmanfm > /dev/null 2>&1; then
 		export FILEMANAGER="pcmanfm"
 	elif type vlc > /dev/null 2>&1; then

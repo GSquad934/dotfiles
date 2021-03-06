@@ -46,11 +46,6 @@ if ! type fzf > /dev/null 2>&1; then
 		alias cfg-gitconfig="$EDITOR $HOME/.gitconfig"
 	fi
 
-	# VIFM configuration
-	if [[ -f "$XDG_CONFIG_HOME"/vifm/vifmrc ]]; then
-		alias cfg-vifm="$EDITOR $XDG_CONFIG_HOME/vifm/vifmrc"
-	fi
-
 	# Weechat configuration
 	if [[ -d "$XDG_CONFIG_HOME"/weechat ]]; then
 		alias cfg-weechat="$EDITOR $XDG_CONFIG_HOME/weechat/weechat.conf"

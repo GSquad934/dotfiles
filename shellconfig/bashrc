@@ -10,11 +10,20 @@ export SOURCES="$HOME/.sources"
 export REPOS="$HOME/.sources/repos"
 
 # Define prompt
-if [[ ${EUID} == 0 ]] ; then
+if [[ ! -z "$TMUX" ]]; then
+	if [[ ${EUID} == 0 ]]; then
+		export PS1='\[\033[91m\]> \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
+	else
+		export PS1='\[\033[95m\]> \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
+	fi
+else
+	if [[ ${EUID} == 0 ]]; then
 		export PS1='\[\033[91m\]\u@\h \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
 	else
 		export PS1='\[\033[95m\]\u@\h \[\033[0;33m\]\w \e[0;32m$(git rev-parse --abbrev-ref HEAD 2> /dev/null) \e[37m\n\$ '
+	fi
 fi
+
 
 # Launch BASH and ignore .bashrc
 alias bbash="env -i bash --norc --noprofile"

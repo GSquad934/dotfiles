@@ -5,7 +5,19 @@
 setopt PROMPT_SUBST
 NEWLINE=$'\n'
 GITBRANCH='$(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
-export PS1="%F{magenta}%n@%m%f %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+if [[ ! -z "$TMUX" ]]; then
+	if [[ ${EUID} == 0 ]]; then
+		export PS1="%F{red}> %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+	else
+		export PS1="%F{magenta}> %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+	fi
+else
+	if [[ ${EUID} == 0 ]]; then
+		export PS1="%F{red}%n@%m%f %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+	else
+		export PS1="%F{magenta}%n@%m%f %F{yellow}%~%f %F{green}${GITBRANCH}%f${NEWLINE}%# "
+	fi
+fi
 
 # Set the dotfiles and custom scripts location
 export DOTFILES="$HOME/.dotfiles"
